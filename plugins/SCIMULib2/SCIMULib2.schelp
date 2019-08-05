@@ -1,0 +1,26 @@
+class:: SCIMULib2
+summary:: A plugin to read data from IMU chips on Bela
+related:: TODO
+categories:: UGens>TODO
+
+description::
+
+A plugin to read data from IMU chips on Bela
+
+
+classmethods::
+
+method::ar, kr
+
+argument::TODO
+
+argument::TODO
+
+
+examples::
+
+code::
+
+{ SCIMULib2.ar(/* TODO */) }.play
+
+::
