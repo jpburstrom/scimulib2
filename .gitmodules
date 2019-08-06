@@ -1,0 +1,3 @@
+[submodule "plugins/SCIMULib2/RTIMULib2"]
+	path = plugins/SCIMULib2/RTIMULib2
+	url = https://github.com/RTIMULib/RTIMULib2
