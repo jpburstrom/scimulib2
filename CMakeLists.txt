@@ -48,7 +48,7 @@ message(STATUS "Install directory set to: ${CMAKE_INSTALL_PREFIX}")
 
 ####################################################################################################
 # options
-option(SUPERNOVA "Build plugins for supernova" ON)
+option(SUPERNOVA "Build plugins for supernova" OFF)
 option(SCSYNTH "Build plugins for scsynth" ON)
 option(NATIVE "Optimize for native architecture" OFF)
 option(STRICT "Use strict warning flags" OFF)
@@ -56,7 +56,36 @@ option(STRICT "Use strict warning flags" OFF)
 ####################################################################################################
 # Begin target SCIMULib2
 
+include_directories(plugins/SCIMULib2/RTIMULib2/RTIMULib)
+
 set(SCIMULib2_cpp_files
+    plugins/SCIMULib2/RTIMULib2/RTIMULib/RTFusion.cpp
+    plugins/SCIMULib2/RTIMULib2/RTIMULib/RTFusionRTQF.cpp
+    plugins/SCIMULib2/RTIMULib2/RTIMULib/RTMath.cpp
+    plugins/SCIMULib2/RTIMULib2/RTIMULib/RTFusionKalman4.cpp
+    plugins/SCIMULib2/RTIMULib2/RTIMULib/RTIMUAccelCal.cpp
+    plugins/SCIMULib2/RTIMULib2/RTIMULib/RTIMUHal.cpp
+    plugins/SCIMULib2/RTIMULib2/RTIMULib/RTIMUMagCal.cpp
+    plugins/SCIMULib2/RTIMULib2/RTIMULib/RTIMUSettings.cpp
+    plugins/SCIMULib2/RTIMULib2/RTIMULib/IMUDrivers/RTIMU.cpp
+    plugins/SCIMULib2/RTIMULib2/RTIMULib/IMUDrivers/RTIMUGD20M303DLHC.cpp
+    plugins/SCIMULib2/RTIMULib2/RTIMULib/IMUDrivers/RTIMUGD20HM303DLHC.cpp
+    plugins/SCIMULib2/RTIMULib2/RTIMULib/IMUDrivers/RTIMUGD20HM303D.cpp
+    plugins/SCIMULib2/RTIMULib2/RTIMULib/IMUDrivers/RTIMULSM9DS0.cpp
+    plugins/SCIMULib2/RTIMULib2/RTIMULib/IMUDrivers/RTIMULSM9DS1.cpp
+    plugins/SCIMULib2/RTIMULib2/RTIMULib/IMUDrivers/RTIMUMPU9150.cpp
+    plugins/SCIMULib2/RTIMULib2/RTIMULib/IMUDrivers/RTIMUMPU9250.cpp
+    plugins/SCIMULib2/RTIMULib2/RTIMULib/IMUDrivers/RTIMUBMX055.cpp
+    plugins/SCIMULib2/RTIMULib2/RTIMULib/IMUDrivers/RTIMUBNO055.cpp
+    plugins/SCIMULib2/RTIMULib2/RTIMULib/IMUDrivers/RTIMUNull.cpp
+    plugins/SCIMULib2/RTIMULib2/RTIMULib/IMUDrivers/RTPressure.cpp
+    plugins/SCIMULib2/RTIMULib2/RTIMULib/IMUDrivers/RTPressureBMP180.cpp
+    plugins/SCIMULib2/RTIMULib2/RTIMULib/IMUDrivers/RTPressureLPS25H.cpp
+    plugins/SCIMULib2/RTIMULib2/RTIMULib/IMUDrivers/RTPressureMS5611.cpp
+    plugins/SCIMULib2/RTIMULib2/RTIMULib/IMUDrivers/RTPressureMS5637.cpp
+    plugins/SCIMULib2/RTIMULib2/RTIMULib/IMUDrivers/RTHumidity.cpp
+    plugins/SCIMULib2/RTIMULib2/RTIMULib/IMUDrivers/RTHumidityHTS221.cpp
+    plugins/SCIMULib2/RTIMULib2/RTIMULib/IMUDrivers/RTHumidityHTU21D.cpp
     plugins/SCIMULib2/SCIMULib2.hpp
     plugins/SCIMULib2/SCIMULib2.cpp
 )
@@ -74,6 +103,8 @@ sc_add_server_plugin(
     "${SCIMULib2_sc_files}"
     "${SCIMULib2_schelp_files}"
 )
+
+add_subdirectory(plugins/SCIMULib2/RTIMULib2/RTIMULib RTIMULib)
 
 # End target SCIMULib2
 ####################################################################################################

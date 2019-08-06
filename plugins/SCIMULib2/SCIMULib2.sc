@@ -1,9 +1,10 @@
-SCIMULib2 : UGen {
-	*ar { |input, gain|
-		/* TODO */ ^this.multiNew('audio', input, gain);
+SCIMULib2 : MultiOutUGen {
+	*kr { |input, gain|
+		/* TODO */ ^this.multiNew('control', input, gain);
 	}
-	checkInputs {
-		/* TODO */
-		^this.checkValidInputs;
+
+	init { arg ... theInputs;
+		inputs = theInputs;
+		^this.initOutputs(3, rate);
 	}
 }
