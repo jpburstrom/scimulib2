@@ -16,13 +16,16 @@ class RTIMU_Singleton {
         ~RTIMU_Singleton();
         static RTIMU_Singleton* get();
         static RTIMU_Singleton* instance;
-        void setOrientation(float& roll, float& pitch, float& yaw);
+        void getOrientation(float& a, float& b, float& c);
+        void saveOffset();
     private:
         bool running;
+        bool savingOffset;
+        RTQuaternion offset;
         RTIMU* imu;
         std::thread* thread;
         void thready();
-        float r, p, y;
+        float w, x, y, z;
 };
 
 class SCIMULib2 : public SCUnit
@@ -36,9 +39,8 @@ public:
 private:
     // Calc function
     void next(int nSamples);
-    float roll;
-    float pitch;
-    float yaw;
+    float x, y, z;
+    float m_trig;
 
     // Member variables
 };

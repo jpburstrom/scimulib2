@@ -1,6 +1,6 @@
 SCIMULib2 : MultiOutUGen {
-	*kr { |input, gain|
-		/* TODO */ ^this.multiNew('control', input, gain);
+	*kr { |trig|
+		/* TODO */ ^this.multiNew('control', trig);
 	}
 
 	init { arg ... theInputs;
