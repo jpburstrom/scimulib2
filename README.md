@@ -14,7 +14,7 @@ A plugin to read data from IMU chips on Bela
 Clone the project, then use CMake to configure and build it. If you start from a directory that
 contains the directory where you cloned SuperCollider, the following commands will work.
 
-    git clone https://jpburstrom/scimulib2
+    git clone https://github.com/jpburstrom/scimulib2
     cd scimulib2
     mkdir build
     cd build
