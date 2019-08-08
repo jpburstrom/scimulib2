@@ -1,5 +1,5 @@
 SCIMULib2 : MultiOutUGen {
-	*kr { |trig|
+	*kr { |trig=1.0|
 		/* TODO */ ^this.multiNew('control', trig);
 	}
 
